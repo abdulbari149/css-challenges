@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../fontawesome-free-5.15.0-web/css/all.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        background-color: #d1d1d1;
+      }
+
+      .content {
+        height: 10rem;
+        width: 50rem;
+        padding: 2em;
+        background-color: #ffffff;
+        margin: auto;
+        box-shadow: 2px 2px 10px 5px rgba(126, 126, 126, 0.294);
+      }
+
+      .search-bar {
+        --size: 60px;
+        height: var(--size);
+        width: var(--size);
+        display: flex;
+        padding: 0.3em;
+        border-radius: 100vh;
+        align-items: center;
+        position: relative;
+        transition: width 0.3s cubic-bezier(0.2, 0.89, 0.32, 1.15);
+        overflow: hidden;
+        background-color: rgb(255, 198, 105);
+      }
+
+      .search-bar__input {
+        background-color: transparent;
+        flex-grow: 1;
+        font-size: 2.2rem;
+        border: none;
+        padding: 0 1.5em;
+        outline: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        line-height: calc(var(--size) - 3px);
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      .search-bar__input::placeholder {
+        font-size: 2rem;
+        color: #ffffff;
+        opacity: 0.9;
+      }
+      .search-bar__submit {
+        color: white;
+        font-size: 2rem;
+        background-color: transparent;
+        border: none;
+        width: calc(var(--size) - 3px);
+        height: calc(var(--size) - 5px);
+        border-radius: 100vh;
+        text-align: center;
+      }
+
+      .search-bar__submit:hover,
+      .search-bar__submit:focus {
+        outline: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.294);
+      }
+
+      .search-bar:focus-within {
+        width: 100%;
+      }
+
+      .search-bar:focus-within .search-bar__submit {
+        margin-left: auto;
+        color: white;
+        background-color: rgb(73, 191, 238);
+      }
+
+      .search-bar:focus-within .search-bar__input {
+        opacity: 1;
+        width: calc(100% - var(--size));
+        cursor: initial;
+      }
+
+      @keyframes glow {
+        0% {
+          box-shadow: 0 0 0 15px rgb(145, 208, 233);
+        }
+
+        50% {
+          box-shadow: 0 0 0 5px rgba(223, 223, 223, 0.945),
+            0 0 6px 30px rgb(177, 219, 236);
+        }
+
+        100% {
+          box-shadow: 0 0 0 3px rgb(145, 208, 233);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="content">
+      <div class="search-bar">
+        <input
+          type="text"
+          class="search-bar__input"
+          placeholder="Search Your Course"
+          aria-label="Search"
+        />
+        <button class="search-bar__submit" aria-label="submit search">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
